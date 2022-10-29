@@ -1,0 +1,25 @@
+{
+    "name": "wkorbecki/form",
+    "description": "A library to management and display form for laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Korbecki",
+            "email": "wojciechkorbecki@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "WKorbecki\\Form\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0",
+        "laravel/framework": "^8.75"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
