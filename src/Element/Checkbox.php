@@ -18,10 +18,10 @@ class Checkbox extends Element {
             implode("\n", [
                 '<div class="form-group">',
                 '<div class="form-check">',
-                $this->renderLabel(),
                 $this->renderElement($default),
-                $this->renderErrors(),
+                $this->renderLabel(),
                 '</div>',
+                $this->renderErrors(),
                 '</div>',
             ]);
     }
