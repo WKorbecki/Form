@@ -57,7 +57,7 @@ abstract class Element {
         $this->custom_view_label = $data['custom_view_label'] ?? $this->custom_view_label;
         $this->custom_view_element = $data['custom_view_element'] ?? $this->custom_view_element;
         $this->custom_view_group = $data['custom_view_group'] ?? $this->custom_view_group;
-        $this->attributes['id'] = $this->fieldId($this->group, $data['id'] ?? $data['name'] ?? $this->id);
+        $this->attributes['id'] = $this->fieldId($this->group, $data['id'] ?? $data['name'] ?? $this->name);
         $this->attributes['name'] = $this->fieldName($this->group, $data['name'] ?? $this->name);
     }
 
