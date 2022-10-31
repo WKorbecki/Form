@@ -60,10 +60,7 @@ trait AttributeTrait {
     }
 
     protected final function attributes($default = null) : string {
-        $elements = [
-            'id="' . $this->id . '"',
-            'name="' . $this->name . '"',
-        ];
+        $elements = [];
 
         if ($class = $this->fieldClass()){
             $elements[] = 'class="' . $class . '"';
