@@ -48,7 +48,7 @@ abstract class Element {
         $this->value = $data['value'] ?? $this->value;
         $this->options = $data['options'] ?? $this->options;
         $this->data = $data['data'] ?? $this->data;
-        $this->attributes = [$data['attr'] ?? $this->attributes];
+        $this->attributes = $data['attr'] ?? $this->attributes;
         $this->validation = $data['validation'] ?? $this->validation;
         $this->prepend = $data['prepend'] ?? $this->prepend;
         $this->append = $data['append'] ?? $this->append;
