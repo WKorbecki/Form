@@ -61,26 +61,6 @@ abstract class Element {
         $this->attributes['name'] = $this->fieldName($this->group, $data['name'] ?? $this->name);
     }
 
-    abstract public static function make(
-        string $name = '',
-        string $type = 'text',
-        ?string $group = null,
-        ?string $label = null,
-        string $label_class = '',
-        string $placeholder = '',
-        string $class = '',
-        array $options = [],
-        array $data = [],
-        array $attributes = [],
-        $validation = '',
-        bool $multi_value = false,
-        $value = null,
-        array $messages = [],
-        ?string $custom_view_label = null,
-        ?string $custom_view_element = null,
-        ?string $custom_view_group = null
-    );
-
     public function toArray() : array {
         return [
             'hash' => $this->hash,
