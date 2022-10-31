@@ -38,9 +38,9 @@ trait RenderTrait {
         if ($prepend || $append){
             $html = [
                 '<div class="input-group">',
-                $prepend ? ('<div class="input-group-prepend">' . $prepend . '</div>') : '',
+                $prepend ?? '',
                 $this->renderElement($default),
-                $append ? ('<div class="input-group-append">' . $append . '</div>') : '',
+                $append ?? '',
                 '</div>',
             ];
         }
