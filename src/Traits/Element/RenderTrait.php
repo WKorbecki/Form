@@ -6,13 +6,36 @@ trait RenderTrait {
     public function render($default = null) : string {
         return $this->custom_view_group ?
             view($this->custom_view_group, $this->toArray())->render() :
-            implode("\n", [
-                '<div class="form-group">',
-                $this->renderLabel(),
-                $this->renderInputGroup($default),
-                $this->renderErrors(),
-                '</div>',
-            ]);
+            $this->renderByStyle($default);
+    }
+
+    protected function renderByStyle($default = null) : string {
+        switch ($this->render) {
+            case 'bootstrap4': return $this->renderBootstrap4($default);
+            case 'bootstrap5': return $this->renderBootstrap5($default);
+        }
+
+        return '';
+    }
+
+    protected function renderBootstrap4($default = null) : string {
+        return implode("\n", [
+            '<div class="form-group">',
+            $this->renderLabel(),
+            $this->renderInputGroup($default),
+            $this->renderErrors(),
+            '</div>',
+        ]);
+    }
+
+    protected function renderBootstrap5($default = null) : string {
+        return implode("\n", [
+            '<div class="form-group">',
+            $this->renderLabel(),
+            $this->renderInputGroup($default),
+            $this->renderErrors(),
+            '</div>',
+        ]);
     }
 
     public function renderElement($default = null) : string {

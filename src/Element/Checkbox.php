@@ -12,25 +12,35 @@ class Checkbox extends Element {
                 <input type=\"checkbox\" {$this->attributes($default)}>";
     }
 
-    public function render($default = null) : string {
-        return $this->custom_view_group ?
-            view($this->custom_view_group, $this->toArray())->render() :
-            implode("\n", [
-                '<div class="form-group">',
-                '<div class="form-check">',
-                $this->renderElement($default),
-                $this->renderLabel(),
-                '</div>',
-                $this->renderErrors(),
-                '</div>',
-            ]);
-    }
-
     protected function valueAttribute(array &$elements, $default = null) {
         $elements[] = 'value="1"';
 
         if (($this->value ?? $default) == 1){
             $elements[] = 'checked="checked"';
         }
+    }
+
+    protected function renderBootstrap4($default = null) : string {
+        return implode("\n", [
+            '<div class="form-group">',
+            '<div class="custom-control custom-checkbox">',
+            $this->renderElement($default),
+            $this->renderLabel(),
+            '</div>',
+            $this->renderErrors(),
+            '</div>',
+        ]);
+    }
+
+    protected function renderBootstrap5($default = null) : string {
+        return implode("\n", [
+            '<div class="form-group">',
+            '<div class="form-check">',
+            $this->renderElement($default),
+            $this->renderLabel(),
+            '</div>',
+            $this->renderErrors(),
+            '</div>',
+        ]);
     }
 }

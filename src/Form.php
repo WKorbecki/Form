@@ -2,6 +2,7 @@
 
 namespace WKorbecki\Form;
 
+use WKorbecki\Form\Enum\ElementRender;
 use WKorbecki\Form\Traits\Form\ElementTrait;
 use WKorbecki\Form\Traits\Form\PopulateTrait;
 use WKorbecki\Form\Traits\Form\RenderTrait;
@@ -17,6 +18,7 @@ abstract class Form {
     /* @var $elements Element[] */
     private $elements = [];
     private ?MessageBag $errors = null;
+    private string $render = ElementRender::Bootstrap4;
 
     public function toArray() : array {
         $elements = [];

@@ -2,6 +2,7 @@
 
 namespace WKorbecki\Form;
 
+use WKorbecki\Form\Enum\ElementRender;
 use WKorbecki\Form\Traits\Element\AttributeTrait;
 use WKorbecki\Form\Traits\Element\RenderTrait;
 
@@ -32,6 +33,7 @@ abstract class Element {
     protected array $prepend = [];
     protected array $append = [];
     protected bool $value_attribute_exclude = false;
+    protected string $render = ElementRender::Bootstrap4;
     private int $valid = 0;
 
     public function __construct(string $name, array $data) {
@@ -59,6 +61,7 @@ abstract class Element {
         $this->custom_view_group = $data['custom_view_group'] ?? $this->custom_view_group;
         $this->attributes['id'] = $this->fieldId($this->group, $data['id'] ?? $data['name'] ?? $this->name);
         $this->attributes['name'] = $this->fieldName($this->group, $data['name'] ?? $this->name);
+        $this->render = $data['render'] ?? $this->render;
     }
 
     public function toArray() : array {
