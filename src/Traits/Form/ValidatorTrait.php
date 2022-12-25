@@ -13,8 +13,8 @@ trait ValidatorTrait {
         }
 
         foreach ($this->elements as $element){
-            $rules[$element->request_name()] = $element->rules();
-            $messages[$element->request_name()] = $element->messages();
+            $rules[$element->request_name()] = explode('|', $rules[$element->request_name()] ?? $element->rules());
+            $messages[$element->request_name()] = $messages[$element->request_name()] ?? $element->messages();
             $element->populate(request($element->request_name()));
         }
 

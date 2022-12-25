@@ -96,7 +96,13 @@ trait RenderTrait {
 
         if ($this->valid == -1) {
             foreach ($this->errors as $i => $error) {
-                $html[] = '<span id="error-' . $this->id . '-' . $i . '" class="error invalid-feedback d-block">' . $error . '</span>';
+                if (!is_array($error)) {
+                    $error = [$error];
+                }
+
+                foreach ($error as $j => $_error) {
+                    $html[] = '<span id="error-' . $this->id . '-' . $i . '-' . $j . '" class="error invalid-feedback d-block">' . $_error . '</span>';
+                }
             }
         }
 
