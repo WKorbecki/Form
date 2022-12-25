@@ -8,7 +8,7 @@ class Checkbox extends Element {
     protected string $type = 'checkbox';
 
     public function renderElement($default = null) : string {
-        return "<input type=\"hidden\" name=\"{$this->name}\" value=\"0\">
+        return "<input type=\"hidden\" name=\"{$this->attributes['name']}\" value=\"0\">
                 <input type=\"checkbox\" {$this->attributes($default)}>";
     }
 
