@@ -13,7 +13,7 @@ trait ValidatorTrait {
         }
 
         foreach ($this->elements as $element){
-            $rules[$element->request_name()] = explode('|', $rules[$element->request_name()] ?? $element->rules());
+            $rules[$element->request_name()] = $this->rules2array($rules[$element->request_name()] ?? $element->rules());
             $messages[$element->request_name()] = $messages[$element->request_name()] ?? $element->messages();
             $element->populate(request($element->request_name()));
         }
@@ -53,5 +53,13 @@ trait ValidatorTrait {
         }
 
         return false;
+    }
+
+    private function rules2array($rules) : array {
+        if (!is_array($rules)) {
+            return explode('|', $rules);
+        }
+
+        return $rules;
     }
 }
