@@ -35,6 +35,18 @@ trait ValidatorTrait {
         return true;
     }
 
+    public function validationGet(array $rules = [], array $messages = []) : bool {
+        return $this->validation(ValidatorMethod::Get, $rules, $messages);
+    }
+
+    public function validationPost(array $rules = [], array $messages = []) : bool {
+        return $this->validation(ValidatorMethod::Post, $rules, $messages);
+    }
+
+    public function validationPut(array $rules = [], array $messages = []) : bool {
+        return $this->validation(ValidatorMethod::Put, $rules, $messages);
+    }
+
     private function checkMethod(?string $validate_on) : bool {
         if ($validate_on === null) {
             return false;
